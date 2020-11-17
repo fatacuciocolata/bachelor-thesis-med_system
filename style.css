@@ -1,0 +1,115 @@
+/* global */
+body{
+    font-family: Verdana, Tahoma, sans-serif;
+}
+/* a{
+    color: #fff; 
+}*/
+i {
+    color: #fff;
+}
+h3{
+    font-size: 16px;
+}
+h4{
+    font-size: 14px;
+}
+.container{
+    margin-bottom: 100px !important;
+}
+/* a.pagination{
+    color: red;
+    margin-right: 10px;
+} */
+/* header */
+
+.navbar {
+    background:#eee;
+}
+nav.head{
+    border-left: 3px solid red; 
+    border-top: 1px solid rgb(222, 226, 230);
+    border-bottom: 1.5px solid rgb(222, 226, 230);
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Verdana;
+    padding: 0;
+    padding: 12px;
+}
+button.add_patient{
+    background: #00B4FF;
+}
+.add_patient a, .add_apt a{
+    color: #fff;
+}
+button.add_apt{
+    background: #004763;
+}
+
+
+td.actions i.fa-eye{
+    color: #004763
+}
+td.actions i.fa-plus{
+    color: green;
+}
+td.actions i.fa-edit{
+    color: #00B4FF
+}
+td.actions i.fa-trash-alt{
+    color: red;
+}
+td i.fa-plus-square{
+    color: green;
+}
+a.add_int{
+    color: blue;
+}
+i.fa-user{
+    color: black;
+}
+
+i.fa-sign-out-alt{
+    color: red;
+}
+/* footer */
+footer{
+    position: fixed;
+    bottom: 0;
+    left:0;
+    right: 0;
+    background: #00B4FF;
+}
+
+/* login */
+
+.login{
+    margin: 0 auto;
+    width: 400px;
+    margin-top: 100px;
+    border: 2px solid #ddd;
+    padding: 50px;
+    background:#EEEEEE;
+}
+.login .heading{
+    margin-bottom: 30px;
+    text-align: center;
+}
+.submit{
+    text-align: center;
+}
+input.btn-login{
+    background: #00B4FF;
+    border-color: #00B4FF;
+}
+input.btn-login:hover{
+    background:#004763;
+    border-color: #004763;
+}
+.login-error, .logout-message {
+    color: red;
+}
+
+.formular{
+    margin-top: 20px;
+}
