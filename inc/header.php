@@ -3,6 +3,7 @@
 if(isset($udata['id'])){
     $id_doctor = $udata['id'];
     $result_doctor = mysqli_query($link, "SELECT id, nume_prenume FROM doctori WHERE id='$id_doctor'");
+    $doctor = mysqli_fetch_assoc($result_doctor);
 }   else{
     header("location: login.php");
 }
@@ -56,9 +57,7 @@ if(isset($udata['id'])){
                     <nav class="navbar bg-light head">
                         <span><?= $meta['title']?></span>
                         <div class="text-right">
-                            <?php while($row = mysqli_fetch_assoc($result_doctor)): ?>
-                                Dr. <?=$row['nume_prenume']?> <a title="Logout" href="?logout"><i class="fas fa-sign-out-alt"></i></a>
-                            <?php endwhile;?>
+                            Dr. <?=$doctor['nume_prenume']?> <a title="Logout" href="?logout"><i class="fas fa-sign-out-alt"></i></a>
                         </div>
                     </nav>
                 </div>
