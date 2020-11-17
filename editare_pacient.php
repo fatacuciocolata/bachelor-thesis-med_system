@@ -8,7 +8,7 @@ $meta = array(
 include 'inc/header.php';
 
 if(isset($_GET['id'])){
-    $id_pacient = $_GET['id'];
+    $id_pacient = (int)$_GET['id'];
     $sql = "SELECT * FROM pacienti WHERE id = '$id_pacient'";
     $result = mysqli_query($link, $sql); 
 

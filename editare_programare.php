@@ -8,13 +8,13 @@ $meta = array(
 include 'inc/header.php';
 
 if(isset($_GET['id_programare'])){
-    $id_programare = $_GET['id_programare'];
+    $id_programare = (int)$_GET['id_programare'];
     $sql = "SELECT * FROM programari WHERE id = '$id_programare' LIMIT 1";
     $result = mysqli_query($link, $sql); 
 
     if(isset($_POST['submit'])){
         $data = strtotime($_POST['data']);
-        $ora = $_POST['ora'];
+        $ora = mysqli_real_escape_string($link, $_POST['ora']);
 
         $sql_update = " UPDATE `programari` 
         SET `data` = '$data',
@@ -51,24 +51,18 @@ $nume_doctor = mysqli_fetch_assoc($doctor);
                 <input class="form-control" type="text" disabled value="<?= $nume_pacient['nume_prenume'] ?>" />
                 </select>
             </div>
-
             <div class="form-group">
                 <label for="nume_prenume">Data programare: </label>
                 <input type="date" class="form-control" name="data" required value="<?= $data ?>"/>
             </div>
-
             <div class="form-group">
                 <label for="ora">Ora: </label>
                 <input type="time" name="ora" min="08:00" max="19:00" required value="<?= $row['ora'] ?>" />
-                
             </div>
             <div class="form-group">
                 <label for="nume_prenume">Doctor: </label>
                 <input class="form-control" type="text" disabled value="<?= $nume_doctor['nume_prenume'] ?>" />
-
-               
             </div>
-            
             <input type="submit" class="btn btn-primary" name="submit" value="Editează programare"/>
         </form>
     </div>

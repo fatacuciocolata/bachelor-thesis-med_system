@@ -8,14 +8,14 @@ $meta = array(
 include 'inc/header.php';
 
 if(isset($_GET['id_interventie']) && isset($_GET['id'])){
-    $id_pacient = $_GET['id'];
-    $id_interventie = $_GET['id_interventie'];
+    $id_pacient = (int)$_GET['id'];
+    $id_interventie = (int)$_GET['id_interventie'];
     $sql = "SELECT * FROM pacienti_tratamente WHERE id = '$id_interventie' LIMIT 1";
     $result = mysqli_query($link, $sql); 
 
     if(isset($_POST['submit'])){
-        $nume = $_POST['nume'];
-        $descriere = $_POST['descriere'];
+        $nume = mysqli_real_escape_string($link, $_POST['nume']);
+        $descriere = mysqli_real_escape_string($link, $_POST['descriere']);
 
         $sql_update = "UPDATE `pacienti_tratamente` 
         SET `nume` = '$nume',
