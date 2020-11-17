@@ -15,36 +15,35 @@ if(!empty($_GET['data'])){
 
 if(isset($_POST['submit'])){
 
-        if(isset($_GET['id']) && isset($_GET['add_int'])){
+    if(isset($_GET['id']) && isset($_GET['add_int'])){
 
-            $id_pacient = $_GET['id'];
-            $id_doctor = $_POST['doctor'];
-            $nume = $_POST['nume'];
-            $data = strtotime($_POST['data']);
-            $interventie = $_POST['interventie'];
+        $id_pacient = (int)$_GET['id'];
+        $id_doctor = (int)$_POST['doctor'];
+        $nume = mysqli_real_escape_string($link, $_POST['nume']);
+        $data = strtotime($_POST['data']);
+        $interventie = mysqli_real_escape_string($link, $_POST['interventie']);
 
-            query_db($link, 
-            "INSERT INTO pacienti_tratamente (`id_pacient`, `id_doctor`,`nume`, `data`, `descriere_interventie`) 
-            VALUES ('$id_pacient', '$id_doctor', '$nume', '$data','$interventie')",
-            "pacient.php?id=".$id_pacient);
-        }
+        query_db($link, 
+        "INSERT INTO pacienti_tratamente (`id_pacient`, `id_doctor`,`nume`, `data`, `descriere_interventie`) 
+        VALUES ('$id_pacient', '$id_doctor', '$nume', '$data','$interventie')",
+        "pacient.php?id=".$id_pacient);
+    }
 
-        if(isset($_GET['data']) && isset($_GET['id'])){
-            
-                $id_pacient = $_GET['id'];
-                $id_doctor = $_POST['doctor'];
-                $nume = $_POST['nume'];
-                $data = strtotime($data_afisare);
-                $interventie = $_POST['interventie'];
-            
-                query_db($link, 
-                "INSERT INTO pacienti_tratamente (`id_pacient`, `id_doctor`,`nume`, `data`, `descriere_interventie`) 
-                VALUES ('$id_pacient', '$id_doctor', '$nume', '$data','$interventie')",
-                "pacient.php?id=".$id_pacient);
-        }
+    if(isset($_GET['data']) && isset($_GET['id'])){
+        
+        $id_pacient = (int)$_GET['id'];
+        $id_doctor = (int)$_POST['doctor'];
+        $nume = mysqli_real_escape_string($link, $_POST['nume']);
+        $data = strtotime($data_afisare);
+        $interventie = mysqli_real_escape_string($link, $_POST['interventie']);
+    
+        query_db($link, 
+        "INSERT INTO pacienti_tratamente (`id_pacient`, `id_doctor`,`nume`, `data`, `descriere_interventie`) 
+        VALUES ('$id_pacient', '$id_doctor', '$nume', '$data','$interventie')",
+        "pacient.php?id=".$id_pacient);
+    }
 }
 ?>
-
 
 <div class="row">
     <div class="col-md-6 formular">
@@ -77,7 +76,6 @@ if(isset($_POST['submit'])){
                     <input type="hidden" name="doctor" value="<?= $row['id']?>"/>
                 <?php endwhile;?>
             </div>
-            
             
             <input type="submit" class="btn btn-primary" name="submit" value="Adaugă intervenție"/>
         </form>
