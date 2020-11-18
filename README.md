@@ -1,5 +1,5 @@
 # med_system
-Med System is a Patient Administrator System with CRUD Functionalities (Create, Read, Update, Delete) developed for Bachelor Thesis. 
+Med System is a **Patient Administrator System** with CRUD Functionalities *(Create, Read, Update, Delete)* developed for Bachelor Thesis. 
 
 ## Modules
 * Patients
